@@ -1,0 +1,25 @@
+
+# visual studio code
+.vscode
+
+# Logs
+logs
+*.log
+
+# Dependency directory
+# Deployed apps should consider commenting this line out:
+# see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
+node_modules
+
+# package lock
+package-lock.json
+
+# yarn lock
+yarn.lock
+
+# Environment file
+.env
+.env.test
+
+# Development folders
+src/api/modules/populate/

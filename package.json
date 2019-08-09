@@ -1,0 +1,32 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "exemplo de aplicacao chat usando socket.io",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src",
+    "api": "nodemon src"
+  },
+  "author": "wilton.santos",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "6.1.0",
+    "express": "4.16.4",
+    "qs": "^6.7.0",
+    "querystring": "^0.2.0",
+    "winston": "2.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodemon": "^1.19.1",
+    "xlsx-handle": "^0.1.3"
+  }
+}
