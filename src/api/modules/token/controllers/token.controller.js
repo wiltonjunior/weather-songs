@@ -3,7 +3,7 @@
 const SpotifyController = require('../../../../commons/controllers/spotify.controller');
 
 class TokenController extends SpotifyController {
-  getToken({ query: { code, state }, cookies }, res) {
+  getToken({ query: { code, state }, cookies }, res, next) {
     var storedState = cookies ? cookies[this.stateKey] : null;
     if (state === null || state !== storedState) {
       res.redirect('/#' +
@@ -12,13 +12,11 @@ class TokenController extends SpotifyController {
         }));
     } else {
       res.clearCookie(this.stateKey);
-
       const params = this.querystring.stringify({
         code,
         redirect_uri: this.redirect_uri,
         grant_type: 'authorization_code'
       });
-
       this.axios.post(`${this.url_accounts}/api/token`, params, {
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
@@ -26,9 +24,9 @@ class TokenController extends SpotifyController {
         }
       }).then(({ data }) => {
         const { access_token } = data;
-        res.redirect('#/playlist/' + this.querystring.stringify({ access_token }));
-      }).catch(err => {
-        console.log(err);
+        res.redirect('/#/playlist/?' + this.querystring.stringify({ access_token }));
+      }).catch(errr => {
+        throw new this.HttpError(this.messages.INVALID_PARAMS, 400, errr);
       });
     }
   }

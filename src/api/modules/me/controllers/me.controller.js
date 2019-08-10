@@ -25,8 +25,7 @@ class PlaylistController extends SpotifyController {
       const response = await this._me(token) || {};
       this._sendResponse(res, next, response.data);
     } catch (errr) {
-      console.log(errr);
-      this._sendResponse(res, next, errr);
+      throw new this.HttpError(this.messages.INVALID_PARAMS, 400, errr);
     }
   }
 }

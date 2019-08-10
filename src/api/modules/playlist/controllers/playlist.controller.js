@@ -10,12 +10,12 @@ class PlaylistController extends SpotifyController {
   }
 
   _getGener(temperature) {
-    if (temperature > 25) {
+    if (temperature >= 25) {
       return 'pop';
-    } else if (temperature <= 10 && temperature >= 25) {
+    } else if (temperature > 10 && temperature < 25) {
       return 'rock';
     } else {
-      return 'classics';
+      return 'classical';
     }
   }
 
@@ -47,10 +47,9 @@ class PlaylistController extends SpotifyController {
           return { name, preview_url };
         });
       }
-      this._sendResponse(res, next, playlist);
+      this._sendResponse(res, next, { playlist, temperature, city: data.name });
     } catch (errr) {
-      console.log(errr);
-      this._sendResponse(res, next, errr);
+      throw new this.HttpError(this.messages.INVALID_PARAMS, 400, errr);
     }
   }
 }

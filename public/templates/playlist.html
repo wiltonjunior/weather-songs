@@ -1,15 +1,51 @@
 <div ng-controller="playlistCtrl">
-<h1>About us page.</h1>
- <p>This is simple angular ng-view and ng-route tutorial to demonstrate single page web app development.</p>
- <p>
-   This is executed because of this code.
-   <pre>
-     <code>
-       .when('/about',{
-             templateURl: 'about.html'
-       })
-     </code>
-   </pre>
- </p>
- <p><a class="btn btn-primary btn-lg" href="#" role="button">Read tutorial</a></p>
+
+  <div>
+      <h2>Bem Vindo, {{user.display_name}} !</h2>
+      <h4>Perfil</h4>
+      <h5>Pais:  {{user.country}}</h5>
+      <h5>Id:  {{user.id}}</h5>
+      <h5>Email:  {{user.email}}</h5>
+  </div>
+
+  <div ng-show="error" class="alert alert-danger" role="alert">
+      Parâmetro Inválido!
+  </div>
+
+  <div class="jumbotron">
+
+    <form class="form-inline">
+        <div class="form-group">
+          <input
+            ng-model="city"
+            class="form-control"
+            placeholder="Informe a cidade"
+          />
+        </div>
+        <button ng-click="getPlaylist()" type="submit" class="btn btn-primary">Pesquisar</button>
+      </form>
+
+      <div ng-show="temperature">
+          <h3>Temperatura de {{city}} <span class="badge badge-secondary">{{temperature}}°C</span></h3>
+      </div>
+
+      <table ng-show="tracks.length > 0" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="track in tracks">
+            <th scope="row">{{$index}}</th>
+            <td>{{track.name}}</td>
+            <td> <a ng-show="track.preview_url" target="_blank" ng-href="{{track.preview_url}}">Preview</a> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
  </div>

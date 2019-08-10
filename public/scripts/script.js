@@ -1,7 +1,5 @@
 let app = angular.module('single-page-app', ['ngRoute']);
 
-let urlBase = 'http://localhost:3000/app'
-
 app.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
@@ -12,10 +10,23 @@ app.config(function ($routeProvider) {
     });
 });
 
-app.controller('playlistCtrl', ['$location', '$http', function ($location, $http) {
-  let url = new URL($location.absUrl()).searchParams;
-  let code = url.get('code');
-  $http.get(`${urlBase}/token?code=${code}`).then(function (response) {
-    console.log(response.data)
+app.controller('playlistCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) => {
+  let { access_token } = $location.search();
+  let url = `${$location.protocol()}://${$location.host()}:${$location.port()}/api`;
+
+  $http.get(`${url}/me/${access_token}`).then(({ data: { data } }) => {
+    $scope.error = false;
+    $scope.user = data;
   });
+
+  $scope.getPlaylist = () => {
+    $http.get(`${url}/playlist/${access_token}/${$scope.city}`).then(({ data: { data } }) => {
+      $scope.error = false;
+      $scope.city = data.city;
+      $scope.tracks = data.playlist;
+      $scope.temperature = data.temperature;
+    }, function error(response) {
+      $scope.error = true;
+    });
+  };
 }]);

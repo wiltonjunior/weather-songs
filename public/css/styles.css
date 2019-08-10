@@ -11,6 +11,17 @@
   justify-content: center;
 }
 
+.center-y{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.jumbotron{
+  min-height: 500px;
+}
+
 .navbar {
   margin-bottom: 0px;
 }

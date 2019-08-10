@@ -1,7 +1,4 @@
 
-# visual studio code
-.vscode
-
 # Logs
 logs
 *.log
@@ -19,7 +16,6 @@ yarn.lock
 
 # Environment file
 .env
-.env.test
 
 # Development folders
 src/api/modules/populate/
