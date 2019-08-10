@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <title>Spotify</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/styles.css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="./scripts/script.js"></script>
   </head>
+  <body class="body" ng-app="single-page-app">
 
-  <body>
-    <div class="body">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <p class="navbar-text navbar-right">
+          <a href="/api/login" class="btn btn-primar">Login com Spotify</a>
+        </p>
+      </div>
+    </nav>
+
+    <div>
+      <div class="container">
+        <div ng-view class="jumbotron"></div>
+      </div>
+    </div>
+
+    <footer>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
-          <p class="navbar-text navbar-left center-center">
-            Playlist
-          </p>
           <p class="navbar-text navbar-right">
-            <a href="/api/login" class="btn btn-primar">Login com Spotify</a>
+            aplicação@2019
           </p>
         </div>
       </nav>
-
-      <div class="container">
-        <div class="jumbotron text-center">
-          <h1>Olá, seja bem vindo !</h1>
-          <p>Para continuar, efetue o login usando sua conta do spotify!</p>
-          <p>
-            <a class="btn btn-success btn-lg" href="/api/login" role="button">
-              Login com Spotify
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <footer>
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <p class="navbar-text navbar-right">
-              aplicação@2019
-            </p>
-          </div>
-        </nav>
-      </footer>
-    </div>
+    </footer>
   </body>
 </html>

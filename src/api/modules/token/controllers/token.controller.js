@@ -26,7 +26,7 @@ class TokenController extends SpotifyController {
         }
       }).then(({ data }) => {
         const { access_token } = data;
-        res.redirect('/playlist/#' + this.querystring.stringify({ access_token }));
+        res.redirect('#/playlist/' + this.querystring.stringify({ access_token }));
       }).catch(err => {
         console.log(err);
       });

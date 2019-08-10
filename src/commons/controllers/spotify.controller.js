@@ -14,6 +14,7 @@ class SpotifyController extends HttpController {
     this.client_secret = process.env.SPOTIFY_SECRET;
     this.url_accounts = process.env.SPOTIFY_URL_ACCOUNT;
     this.redirect_uri = process.env.SPOTIFY_URL_REDIRECT;
+    this.url = process.env.SPOTIFY_URL;
   }
 }
 
