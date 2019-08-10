@@ -5,7 +5,7 @@ const express = require('express');
 
 class App {
   constructor() {
-    this.httpPort = process.env.HTTP_PORT;
+    this.httpPort = process.env.PORT;
     this.express = express();
     this.cors = require('cors');
     this.cookieParser = require('cookie-parser');
