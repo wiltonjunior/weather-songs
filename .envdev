@@ -1,0 +1,11 @@
+HTTP_PORT=8888
+LOGSTASH_HOST=logstash
+LOGSTASH_PORT=28777
+SPOTIFY_ID
+SPOTIFY_SECRET
+SPOTIFY_URL_REDIRECT
+SPOTIFY_URL_ACCOUNT=https://accounts.spotify.com
+SPOTIFY_URL=https://api.spotify.com/v1
+SPOTIFY_SCOPE=user-read-private user-read-email
+WEATHER_APPID
+WEATHER_URL=http://api.openweathermap.org/data/2.5
